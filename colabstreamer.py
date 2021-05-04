@@ -93,6 +93,10 @@ def _generic_stream(stream_url, stream_secret):
                               stream_url + stream_secret])
   return (_xorg, _i3, _ffmpeg)
 
+def open_xorg():
+  _xorg = subprocess.Popen(["Xorg", "-seat", "seat-1", "-allowMouseOpenFail", "-novtswitch", "-nolisten", "tcp"])
+  return _xorg
+  
 def stream_to_twitch(stream_secret, rtmp_server = "rtmp://live.twitch.tv/app/"):
   return _generic_stream(rtmp_server, stream_secret)
 
